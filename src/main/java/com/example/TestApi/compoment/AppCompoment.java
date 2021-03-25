@@ -23,7 +23,7 @@ public class AppCompoment {
 
 
     @GetMapping("/getTopNews")
-    public ResponseEntity<?> getEveryNews() throws NewsNotFoundException {
+    public ResponseEntity<?> getTopNews() throws NewsNotFoundException {
         try {
             News news = appServices.getTopNewsService();
             return new ResponseEntity<>(news, HttpStatus.CONTINUE);

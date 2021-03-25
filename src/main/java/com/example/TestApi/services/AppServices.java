@@ -12,19 +12,18 @@ public class AppServices {
 
     @Autowired
     RestTemplate restTemplate;
-    public String ApiKey = "3e4a7052c21f43e286ab2175be919f5b";
+    public String ApiKey = "Get your key";
     public String BaseUri = "https://newsapi.org/v2/everything?q=";
-    public String EveryNewsUri = "https://newsapi.org/v2/everything?q=bitcoin&apiKey=3e4a7052c21f43e286ab2175be919f5b";
-    public String TopNewsUri = "https://newsapi.org/v2/top-headlines?country=us&apiKey=3e4a7052c21f43e286ab2175be919f5b";
-    public String SourceUri = "https://newsapi.org/v2/sources?apiKey=3e4a7052c21f43e286ab2175be919f5b";
+    public String TopNewsUri = "https://newsapi.org/v2/top-headlines?country=us&apiKey=";
+    public String SourceUri = "https://newsapi.org/v2/sources?apiKey=";
 
     public News getTopNewsService(){
-        News result = restTemplate.getForObject(TopNewsUri, News.class);
+        News result = restTemplate.getForObject(TopNewsUri+this.ApiKey, News.class);
         return result;
     }
 
     public NewsSource getAllSourceServices(){
-        NewsSource result = restTemplate.getForObject(SourceUri, NewsSource.class);
+        NewsSource result = restTemplate.getForObject(SourceUri+this.ApiKey, NewsSource.class);
         return result;
     }
 
